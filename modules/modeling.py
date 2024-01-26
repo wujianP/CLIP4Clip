@@ -16,6 +16,7 @@ from torch.nn.utils.rnn import pad_packed_sequence, pack_padded_sequence
 logger = logging.getLogger(__name__)
 allgather = AllGather.apply
 
+
 class CLIP4ClipPreTrainedModel(PreTrainedModel, nn.Module):
     """ An abstract class to handle weights initialization and
         a simple interface for dowloading and loading pretrained models.
@@ -140,6 +141,7 @@ def update_attr(target_name, target_config, target_attr_name, source_config, sou
 
 def check_attr(target_name, task_config):
     return hasattr(task_config, target_name) and task_config.__dict__[target_name]
+
 
 class CLIP4Clip(CLIP4ClipPreTrainedModel):
     def __init__(self, cross_config, clip_state_dict, task_config):
